@@ -84,7 +84,7 @@ always @(*)
 					nx_state			<= ST_DECODE;
 				end
 				
-			ST_FETCH:
+			ST_DECODE:
 				begin
 					oEscreveIR		<= 1'b0;
 					oEscrevePC		<= 1'b0;
@@ -313,4 +313,5 @@ always @(*)
 				
 			endcase
 			
+
 endmodule
