@@ -338,7 +338,7 @@ always @(*)
 					oEscrevePC		<= 1'b0;
 					oEscrevePCCond	<= 1'b0;
 					oEscrevePCBack <= 1'b0;
-					oOrigAULA		<= 2'b10;
+					oOrigAULA		<= 2'b00;
 					oOrigBULA		<= 2'b10;
 					oMem2Reg			<= 2'b00;
 					oOrigPC			<= 1'b0;
@@ -371,5 +371,6 @@ always @(*)
 			endcase
 			
 endmodule
+
 
 
