@@ -50,12 +50,12 @@ always @(*)
 		
 			ST_FETCH:
 				begin
-					oEscreveIR		<= 1'b0;
-					oEscrevePC		<= 1'b0;
+					oEscreveIR		<= 1'b1;
+					oEscrevePC		<= 1'b1;
 					oEscrevePCCond	<= 1'b0;
-					oEscrevePCBack <= 1'b0;
-					oOrigAULA		<= 2'b00;
-					oOrigBULA		<= 2'b00;
+					oEscrevePCBack <= 1'b1;
+					oOrigAULA		<= 2'b10;
+					oOrigBULA		<= 2'b01;
 					oMem2Reg			<= 2'b00;
 					oOrigPC			<= 1'b0;
 					oIouD				<= 1'b0;
@@ -371,4 +371,5 @@ always @(*)
 			endcase
 			
 endmodule
+
 
