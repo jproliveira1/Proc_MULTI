@@ -11,7 +11,7 @@ module TopDE (
 	);
 	
 		
-	initial 
+/*	initial 
 		ClockDIV <= 1'b1;
 
 	always @(posedge CLOCK) 
@@ -32,4 +32,5 @@ module TopDE (
 						.PC(PC), .Instr(Instr), .regin(Regin), .regout(Regout)); */
 		
 	
+
 endmodule
