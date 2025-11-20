@@ -311,7 +311,7 @@ always @(*)
 					oRegWrite		<= 1'b0;
 					oMemWrite		<= 1'b0;
 					oMemRead			<= 1'b0;
-					oALUOp			<=	2'b10;
+					oALUOp			<=	2'b00;
 					nx_state			<= ST_ULAREGWRITE;
 				end
 					
@@ -372,6 +372,7 @@ always @(*)
 			endcase
 			
 endmodule
+
 
 
 
