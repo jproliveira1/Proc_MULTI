@@ -22,7 +22,7 @@ module Control_MULTI (
      output            oMemWrite,
      output            oMemRead,
      output [1:0]    oALUOp,
-     output [1:0]    oState,
+     output [3:0]    oState,
 );
 
 
@@ -34,7 +34,7 @@ assign    oState = pr_state;
 
 initial
     begin
-        pr <= ST_FETCH;
+        pr_state <= ST_FETCH;
     end
 
 always@(posedge iCLK or posedge iRST)
@@ -106,6 +106,9 @@ always @(*)
 						OPC_RTYPE:	nx_state			<= ST_RTYPE;
 						OPC_BRANCH:	nx_state			<= ST_BRANCH;
 						OPC_JAL:		nx_state			<= ST_JAL;
+						OPC_OPIMM:	nx_state			<= ST_ADDI;
+						OPC_JALR:	nx_state			<= ST_JALR;
+						OPC_LUI:		nx_state			<= ST_LUI;
 						default:		nx_state			<= ST_FETCH;
 					endcase
 				end
@@ -309,6 +312,7 @@ always @(*)
 					oMemRead			<= 1'b0;
 					oALUOp			<=	2'b10;
 					nx_state			<= ST_ULAREGWRITE;
+				end
 					
 					ST_JALR:
 				begin
@@ -326,6 +330,7 @@ always @(*)
 					oMemRead			<= 1'b1;
 					oALUOp			<=	2'b00;
 					nx_state			<= ST_FETCH;
+				end
 					
 					ST_LUI:
 				begin
@@ -343,7 +348,8 @@ always @(*)
 					oMemRead			<= 1'b1;
 					oALUOp			<=	2'b11;
 					nx_state			<= ST_ULAREGWRITE;
-						
+				end
+				
 			default:
 				begin
 					oEscreveIR		<= 1'b0;
@@ -364,6 +370,4 @@ always @(*)
 				
 			endcase
 			
-
 endmodule
-
