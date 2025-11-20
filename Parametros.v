@@ -59,7 +59,7 @@ parameter
 	TEXT_ADDRESS = 32'h0040_0000,
 	DATA_ADDRESS = 32'h1001_0000,
 	STACK_ADDRESS = 32'h1001_03FC,
-	GP = DATA_ADDRESS;
+	GP = DATA_ADDRESS,
 	
 	/*	Estados	*/
 	ST_FETCH = 4'b0000,
@@ -77,5 +77,6 @@ parameter
 	ST_JAL = 4'b1100,
 	ST_ADDI = 4'b1101,
 	ST_JALR = 4'b1110,
-	ST_LUI = 4'b1111,
+	ST_LUI = 4'b1111;
+	
 `endif
