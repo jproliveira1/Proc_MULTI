@@ -22,7 +22,7 @@ module Control_MULTI (
      output            oMemWrite,
      output            oMemRead,
      output [1:0]    oALUOp,
-     output [3:0]    oState,
+     output [3:0]    oState
 );
 
 
@@ -371,6 +371,7 @@ always @(*)
 			endcase
 			
 endmodule
+
 
 
 
