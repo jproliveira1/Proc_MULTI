@@ -293,6 +293,57 @@ always @(*)
 					nx_state			<= ST_FETCH;
 				end
 
+				ST_ADDI:
+				begin
+					oEscreveIR		<= 1'b0;
+					oEscrevePC		<= 1'b0;
+					oEscrevePCCond	<= 1'b0;
+					oEscrevePCBack <= 1'b0;
+					oOrigAULA		<= 2'b01;
+					oOrigBULA		<= 2'b10;
+					oMem2Reg			<= 2'b00;
+					oOrigPC			<= 1'b0;
+					oIouD				<= 1'b0;
+					oRegWrite		<= 1'b0;
+					oMemWrite		<= 1'b0;
+					oMemRead			<= 1'b0;
+					oALUOp			<=	2'b10;
+					nx_state			<= ST_ULAREGWRITE;
+					
+					ST_JALR:
+				begin
+					oEscreveIR		<= 1'b0;
+					oEscrevePC		<= 1'b1;
+					oEscrevePCCond	<= 1'b0;
+					oEscrevePCBack <= 1'b0;
+					oOrigAULA		<= 2'b01;
+					oOrigBULA		<= 2'b10;
+					oMem2Reg			<= 2'b01;
+					oOrigPC			<= 1'b0;
+					oIouD				<= 1'b0;
+					oRegWrite		<= 1'b1;
+					oMemWrite		<= 1'b0;
+					oMemRead			<= 1'b1;
+					oALUOp			<=	2'b00;
+					nx_state			<= ST_FETCH;
+					
+					ST_LUI:
+				begin
+					oEscreveIR		<= 1'b0;
+					oEscrevePC		<= 1'b0;
+					oEscrevePCCond	<= 1'b0;
+					oEscrevePCBack <= 1'b0;
+					oOrigAULA		<= 2'b10;
+					oOrigBULA		<= 2'b10;
+					oMem2Reg			<= 2'b00;
+					oOrigPC			<= 1'b0;
+					oIouD				<= 1'b0;
+					oRegWrite		<= 1'b0;
+					oMemWrite		<= 1'b0;
+					oMemRead			<= 1'b1;
+					oALUOp			<=	2'b11;
+					nx_state			<= ST_ULAREGWRITE;
+						
 			default:
 				begin
 					oEscreveIR		<= 1'b0;
@@ -308,10 +359,11 @@ always @(*)
 					oMemWrite		<= 1'b0;
 					oMemRead			<= 1'b0;
 					oALUOp			<=	2'b00;
-					nx_state			<= ST_FETCH1;
+					nx_state			<= ST_FETCH;
 				end
 				
 			endcase
 			
 
 endmodule
+
