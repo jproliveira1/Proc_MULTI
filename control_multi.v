@@ -132,6 +132,7 @@ always @(*)
 						OPC_LOAD:	nx_state			<= ST_LW;
 						OPC_STORE:	nx_state			<= ST_SW;
 						default:		nx_state			<= ST_FETCH;
+					endcase
 				end
 					
 			ST_LW:
@@ -371,6 +372,7 @@ always @(*)
 			endcase
 			
 endmodule
+
 
 
 
