@@ -7,7 +7,9 @@ module TopDE (
 	input logic [4:0] Regin,
 	output logic ClockDIV,
 	output logic [31:0] PC,Instr,Regout,
-	output logic [3:0] Estado
+	output logic [3:0] Estado,
+	output logic [31:0] saidaioud,
+	output logic [31:0] saidawrmem
 	);
 	
 		
@@ -26,7 +28,7 @@ module TopDE (
 
 					
 	Multiciclo MULT1 (.clockCPU(CLOCK), .clockMem(CLOCK), .reset(Reset), 
-						.PC(PC), .Instr(Instr), .regin(Regin), .regout(Regout), .estado(Estado));
+						.PC(PC), .Instr(Instr), .regin(Regin), .regout(Regout), .estado(Estado), .saida1(saidaioud), .saida2(saidawrmem));
 						
 /* Pipeline PIP1 (.clockCPU(ClockDIV), .clockMem(CLOCK), .reset(Reset), 
 						.PC(PC), .Instr(Instr), .regin(Regin), .regout(Regout)); */
