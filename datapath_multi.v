@@ -9,7 +9,9 @@ module Multiciclo (
 	output logic [31:0] Instr,
 	input  logic [4:0]  regin,
 	output logic [31:0] regout,
-	output logic [3:0]  estado
+	output logic [3:0]  estado,
+	output logic [31:0] saida1,
+	output logic [31:0] saida2
 );
 
 	// ====================================================================
@@ -99,8 +101,6 @@ module Multiciclo (
 	// MUX Origem PC
 	assign wMuxOrigPC = wOrigPC ? ALUOut : wSaidaULA;
 
-	// MUX IouD (Endereço da Memória)
-	assign wIouD_Addr = wIouD ? ALUOut : PC;
 
 
 	// ====================================================================
@@ -141,6 +141,8 @@ module Multiciclo (
 		ALUOut <= wSaidaULA;
 	end
 
+		// MUX IouD (Endereço da Memória)
+	assign wIouD_Addr = wIouD ? ALUOut : PC;
 
 	// ====================================================================
 	// 5. Instanciação dos Módulos
@@ -233,5 +235,8 @@ module Multiciclo (
 
 	// Mux de Saída da Memória Unificada
 	assign wRmem = wIouD_Addr[28] ? wQ_Data : wQ_Instr;
+	
+	assign saida1 = wIouD_Addr;
+	assign saida2 = wRmem;
 
 endmodule
