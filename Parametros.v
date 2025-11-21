@@ -62,21 +62,21 @@ parameter
 	GP = DATA_ADDRESS,
 	
 	/*	Estados	*/
-	ST_FETCH = 4'b0000,
-	ST_FETCH1 = 4'b0001,
-	ST_DECODE = 4'b0010,
-	ST_LWSW = 4'b0011,
-	ST_LW = 4'b0100,
-	ST_LW1 = 4'b0101,
-	ST_LW2 = 4'b0110,
-	ST_SW = 4'b0111,
-	ST_SW1 = 4'b1000,
-	ST_RTYPE = 4'b1001,
-	ST_ULAREGWRITE = 4'b1010,
-	ST_BRANCH = 4'b1011,
-	ST_JAL = 4'b1100,
-	ST_ADDI = 4'b1101,
-	ST_JALR = 4'b1110,
-	ST_LUI = 4'b1111;
+	ST_FETCH = 4'b0000,		//0
+	ST_FETCH1 = 4'b0001,		//1
+	ST_DECODE = 4'b0010,		//2
+	ST_LWSW = 4'b0011,		//3
+	ST_LW = 4'b0100,			//4
+	ST_LW1 = 4'b0101,			//5
+	ST_LW2 = 4'b0110,			//6
+	ST_SW = 4'b0111,			//7
+	ST_SW1 = 4'b1000,			//8
+	ST_RTYPE = 4'b1001,		//9
+	ST_ULAREGWRITE = 4'b1010,	//10
+	ST_BRANCH = 4'b1011,		//11
+	ST_JAL = 4'b1100,			//12
+	ST_ADDI = 4'b1101,		//13
+	ST_JALR = 4'b1110,		//14
+	ST_LUI = 4'b1111;			//15
 	
 `endif
